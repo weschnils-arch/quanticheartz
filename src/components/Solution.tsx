@@ -7,7 +7,7 @@ const features = [
   },
   {
     title: 'System-Wide',
-    desc: 'Spotify, YouTube, Apple Music, podcasts, calls — everything.',
+    desc: 'Spotify, YouTube, Apple Music, podcasts — everything.',
   },
   {
     title: 'Zero Quality Loss',
@@ -26,7 +26,7 @@ export default function Solution() {
     <section ref={ref} id="solution" className="section-padding py-24 lg:py-40">
       <div className="max-w-3xl mb-16" data-reveal>
         <p className="label-text mb-4">The Solution</p>
-        <h2 className="heading-lg text-text mb-6">
+        <h2 className="heading-lg mb-6" style={{ color: 'var(--text-primary)' }}>
           One click. Every sound becomes{' '}
           <span className="text-primary italic">432 Hz.</span>
         </h2>
@@ -40,11 +40,15 @@ export default function Solution() {
         {features.map((f, i) => (
           <div
             key={i}
-            className="relative rounded-2xl border border-white/[0.04] bg-[radial-gradient(60%_80px_at_50%_0%,rgba(176,122,255,0.06),transparent)] p-8 transition-all duration-500 group hover:border-white/[0.08] hover:shadow-[0_0_40px_rgba(176,122,255,0.06)]"
+            className="relative rounded-2xl p-8 transition-all duration-500 group"
+            style={{
+              border: '1px solid var(--border)',
+              background: `radial-gradient(60% 80px at 50% 0%, var(--glow), transparent)`,
+            }}
           >
             <div className="absolute top-0 right-1/4 left-1/4 h-px rounded-full blur-sm bg-primary/20" />
             <div className="text-primary/40 font-mono text-xs mb-4">0{i + 1}</div>
-            <h3 className="heading-sm text-text mb-3 group-hover:text-primary transition-colors duration-300">
+            <h3 className="heading-sm mb-3 group-hover:text-primary transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>
               {f.title}
             </h3>
             <p className="body-md">{f.desc}</p>

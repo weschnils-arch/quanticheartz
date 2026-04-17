@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const faqs = [
-  { q: 'What exactly does QuanticHeartz do?', a: 'QuanticHeartz is a macOS audio middleware that intercepts all system audio in real time and retunes it from A=440 Hz to A=432 Hz. It works with every app — Spotify, YouTube, Apple Music, podcasts, video calls.' },
+  { q: 'What exactly does Quantic Heartz do?', a: 'Quantic Heartz is a macOS audio middleware that intercepts all system audio in real time and retunes it from A=440 Hz to A=432 Hz. It works with every app — Spotify, YouTube, Apple Music, podcasts and more. Note: FaceTime, Zoom and WhatsApp calls are routed directly to hardware by macOS and bypass the pipeline.' },
   { q: 'Does it slow down my Mac?', a: 'No. QuanticHeartz uses less than 1% CPU with sub-millisecond latency. It runs silently — you won\'t notice it\'s there, except in how your music sounds.' },
   { q: 'Is there any audio quality loss?', a: 'Zero. Professional-grade pitch shifting algorithms. No artifacts, no speed changes, no distortion.' },
   { q: 'What\'s the difference between 440 Hz and 432 Hz?', a: '440 Hz is the international standard pitch adopted in 1953. 432 Hz is an alternative tuning that many find warmer and more natural. Research shows it can reduce heart rate and anxiety.' },
@@ -21,7 +21,7 @@ export default function FAQ() {
       <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24">
         <div data-reveal>
           <p className="label-text mb-4">FAQ</p>
-          <h2 className="heading-lg text-text">
+          <h2 className="heading-lg" style={{ color: 'var(--text-primary)' }}>
             Questions &amp;<br />
             <span className="text-primary italic">answers.</span>
           </h2>
@@ -31,14 +31,15 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="border-t border-white/[0.06] cursor-pointer group"
+              className="cursor-pointer group"
+              style={{ borderTop: '1px solid var(--border)' }}
               onClick={() => setOpen(open === i ? null : i)}
             >
               <div className="flex items-center justify-between gap-4 py-5">
-                <span className="text-text/80 text-[0.95rem] font-medium group-hover:text-text transition-colors">
+                <span className="text-[0.95rem] font-medium transition-colors" style={{ color: 'var(--text-primary)', opacity: 0.8 }}>
                   {faq.q}
                 </span>
-                <span className="font-mono text-lg text-text-dim group-hover:text-primary transition-colors flex-shrink-0">
+                <span className="font-mono text-lg group-hover:text-primary transition-colors flex-shrink-0" style={{ color: 'var(--text-dim)' }}>
                   {open === i ? '−' : '+'}
                 </span>
               </div>
@@ -50,7 +51,7 @@ export default function FAQ() {
               </div>
             </div>
           ))}
-          <div className="border-t border-white/[0.06]" />
+          <div style={{ borderTop: '1px solid var(--border)' }} />
         </div>
       </div>
     </section>
